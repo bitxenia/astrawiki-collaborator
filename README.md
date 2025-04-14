@@ -39,6 +39,8 @@ cp .env.example .env
 
 - `PUBLIC_IP`: The public IP address of the machine where the container will run. This is used to configure the astrawiki node.
 
+- `CLUSTER_SERVICE_IPNS`: The IPNS address of the service.json file. This is used to configure the ipfs-cluster-follow service. By default, it is set to the bitxenia's astrawiki-web service.json IPNS address.
+
 ## Usage
 
 A makefile is provided to help you with the most common tasks. You can run `make` to see the available targets.

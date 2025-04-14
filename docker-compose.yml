@@ -1,32 +1,34 @@
 services:
-  # ipfs_node:
-  #   container_name: ipfs_node
-  #   image: ipfs/kubo:v0.34.1
-  #   ports:
-  #     - "4001:4001" # ipfs swarm
-  #     - "5001:5001" # ipfs api
-  #     - "8080:8080" # ipfs gateway
-  #   volumes:
-  #     - ./data/ipfs_data:/data/ipfs
-  #   networks:
-  #     - cluster_net
+  ipfs_node:
+    container_name: ipfs_node
+    image: ipfs/kubo:v0.34.1
+    ports:
+      - "4001:4001" # ipfs swarm
+      - "5001:5001" # ipfs api
+      - "8080:8080" # ipfs gateway
+    volumes:
+      - ./data/ipfs_data:/data/ipfs
+    networks:
+      - cluster_net
 
-  # ipfs_cluster:
-  #   container_name: ipfs_cluster
-  #   image: ipfs/ipfs-cluster@sha256:5df90b8d848a74a8505feb3684bf6d74ec6ab869e6f3de692b842f07c1a5ed1a
-  #   depends_on:
-  #     - ipfs_node
-  #   environment:
-  #     CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs_node/tcp/5001
-  #     CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # expose API
-  #   ports:
-  #     - "9094:9094" # http api
-  #     - "9095:9095" # proxy api
-  #     - "9096:9096" # cluster swarm, other peers connect via this port
-  #   volumes:
-  #     - ./data/ipfs_cluster_data:/data/ipfs-cluster
-  #   networks:
-  #     - cluster_net
+  ipfs_cluster:
+    container_name: ipfs_cluster
+    image: ipfs/ipfs-cluster@sha256:5df90b8d848a74a8505feb3684bf6d74ec6ab869e6f3de692b842f07c1a5ed1a
+    depends_on:
+      - ipfs_node
+    environment:
+      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs_node/tcp/5001
+      CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # expose API
+    entrypoint: >
+      sh -c "ipfs-cluster-follow bitxenia-wiki-cluster run --init http://127.0.0.1:8080/${CLUSTER_SERVICE_IPNS}"
+    ports:
+      - "9094:9094" # http api
+      - "9095:9095" # proxy api
+      - "9096:9096" # cluster swarm, other peers connect via this port
+    volumes:
+      - ./data/ipfs_cluster_data:/data/ipfs-cluster
+    networks:
+      - cluster_net
 
   astrawiki-node:
     container_name: astrawiki-node

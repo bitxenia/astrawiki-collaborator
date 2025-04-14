@@ -1,0 +1,9 @@
+{
+  "name": "astrawiki-node",
+  "type": "module",
+  "dependencies": {
+    "@bitxenia/astrawiki": "0.0.16",
+    "blockstore-fs": "2.0.2",
+    "datastore-fs": "10.0.2"
+  }
+}

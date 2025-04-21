@@ -1,6 +1,6 @@
 services:
-  ipfs_node:
-    container_name: ipfs_node
+  astrawiki-collaborator-ipfs:
+    container_name: astrawiki-collaborator-ipfs
     image: ipfs/kubo:v0.34.1
     ports:
       - "4001:4001" # ipfs swarm
@@ -9,13 +9,13 @@ services:
     volumes:
       - ./data/ipfs_data:/data/ipfs
     networks:
-      - cluster_net
+      - astrawiki-collaborator-net
 
-  ipfs_cluster:
-    container_name: ipfs_cluster
+  astrawiki-collaborator-cluster:
+    container_name: astrawiki-collaborator-cluster
     image: ipfs/ipfs-cluster@sha256:5df90b8d848a74a8505feb3684bf6d74ec6ab869e6f3de692b842f07c1a5ed1a
     depends_on:
-      - ipfs_node
+      - astrawiki-collaborator-ipfs
     environment:
       CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs_node/tcp/5001
       CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # expose API
@@ -28,25 +28,21 @@ services:
     volumes:
       - ./data/ipfs_cluster_data:/data/ipfs-cluster
     networks:
-      - cluster_net
+      - astrawiki-collaborator-net
 
   astrawiki-node:
-    container_name: astrawiki-node
-    image: astrawiki-node
-    build: ./astrawiki/
+    container_name: astrawiki-collaborator-astrawiki
+    image: bitxenia/astrawiki-cli
     environment:
-      - PUBLIC_IP=${PUBLIC_IP}
+      - ASTRAWIKI_PUBLIC_IP=${PUBLIC_IP}
     ports:
       - "40001:40001"
       - "40002:40002"
       - "40003:40003"
-    volumes:
-      - ./data/astrawiki_data:/data/astrawiki_data
 
 networks:
-  cluster_net:
+  astrawiki-collaborator-net:
 
 volumes:
   ipfs_data:
   ipfs_cluster_data:
-  astrawiki_data:

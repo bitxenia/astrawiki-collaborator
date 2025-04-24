@@ -34,6 +34,8 @@ services:
     container_name: astrawiki-collaborator-astrawiki
     image: bitxenia/astrawiki-cli
     environment:
+      - ASTRAWIKI_WIKI_NAME="bitxenia-wiki"
+      - ASTRAWIKI_IS_COLLABORATOR=true
       - ASTRAWIKI_PUBLIC_IP=${PUBLIC_IP}
     ports:
       - "40001:40001"

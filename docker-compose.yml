@@ -41,6 +41,9 @@ services:
       - "40001:40001"
       - "40002:40002"
       - "40003:40003"
+    volumes:
+      - ./data/astrawiki_data:/astrawiki_data
+      - ./data/astrawiki_data/orbitdb:/orbitdb
 
 networks:
   astrawiki-collaborator-net:

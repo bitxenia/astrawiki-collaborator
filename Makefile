@@ -3,6 +3,7 @@ COMPOSE_FILE = docker-compose.yml
 
 # Start the services with Docker Compose
 up:
+	docker compose pull
 	docker compose build
 	docker compose -f $(COMPOSE_FILE) up -d
 .PHONY: up

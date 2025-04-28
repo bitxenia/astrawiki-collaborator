@@ -20,7 +20,6 @@ The ports that need to be forwarded are:
 - `40001` - Used by astrawiki node to listen `TCP` connections
 - `40002` - Used by astrawiki node to listen `WebSocket` connections
 - `40003` - Used by astrawiki node to listen `WebSocketSecure` connections.
-- `40004` - Used by astrawiki node to listen `WebRTC-Direct` connections.
 
 ## Installation
 

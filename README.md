@@ -41,6 +41,10 @@ cp .env.example .env
 
 - `CLUSTER_SERVICE_IPNS`: The IPNS address of the service.json file. This is used to configure the ipfs-cluster-follow service. By default, it is set to the bitxenia's astrawiki-web service.json IPNS address.
 
+- `ENABLED_PROFILES`: The profiles of the services to be started with the docker-compose. By default all services are enabled. You can choose which services to collaborate with by setting this variable. The available profiles are:
+  - `astrawiki`: To collaborate to the astrawiki node.
+  - `web`: To collaborate to the astrawiki-web.
+
 ## Usage
 
 A makefile is provided to help you with the most common tasks. You can run `make` to see the available targets.

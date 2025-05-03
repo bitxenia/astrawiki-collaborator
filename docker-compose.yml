@@ -10,6 +10,8 @@ services:
       - ./data/ipfs_data:/data/ipfs
     networks:
       - astrawiki-collaborator-net
+    profiles:
+      - web
 
   astrawiki-collaborator-cluster:
     container_name: astrawiki-collaborator-cluster
@@ -29,6 +31,8 @@ services:
       - ./data/ipfs_cluster_data:/data/ipfs-cluster
     networks:
       - astrawiki-collaborator-net
+    profiles:
+      - web
 
   astrawiki-node:
     container_name: astrawiki-collaborator-astrawiki
@@ -43,6 +47,8 @@ services:
       - "40003:40003"
     volumes:
       - ./data/astrawiki_data:/app/data
+    profiles:
+      - astrawiki
 
 networks:
   astrawiki-collaborator-net:

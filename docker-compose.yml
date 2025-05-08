@@ -61,7 +61,7 @@ services:
       - "50002:50002"
       - "50003:50003"
     volumes:
-      - ./data/astrachat_data:/app/data
+      - ./data/astrachat_data:/app/data/astrachat
     profiles:
       - astrachat
     restart: unless-stopped

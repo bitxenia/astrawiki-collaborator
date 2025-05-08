@@ -18,7 +18,10 @@ endef
 # Start the services
 up:
 	docker compose pull
-	docker compose build
+	docker compose build ipfs_node
+	docker compose build astrawiki-collaborator-cluster
+	docker compose build astrachat-node
+	docker compose build astrawiki-node
 	@$(call compose_cmd) up -d
 
 .PHONY: up

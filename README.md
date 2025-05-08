@@ -20,6 +20,9 @@ The ports that need to be forwarded are:
 - `40001` - Used by astrawiki node to listen `TCP` connections
 - `40002` - Used by astrawiki node to listen `WebSocket` connections
 - `40003` - Used by astrawiki node to listen `WebSocketSecure` connections.
+- `50001` - Used by astrachat node to listen `TCP` connections
+- `50002` - Used by astrachat node to listen `WebSocket` connections
+- `50003` - Used by astrachat node to listen `WebSocketSecure` connections.
 
 ## Installation
 
@@ -43,6 +46,7 @@ cp .env.example .env
 
 - `ENABLED_PROFILES`: The profiles of the services to be started with the docker-compose. By default all services are enabled. You can choose which services to collaborate with by setting this variable. The available profiles are:
   - `astrawiki`: To collaborate to the astrawiki node.
+  - `astrachat`: To collaborate to the astrachat node.
   - `web`: To collaborate to the astrawiki-web.
 
 ## Usage

@@ -38,7 +38,7 @@ services:
     container_name: astrawiki-collaborator-astrawiki
     image: bitxenia/astrawiki-cli
     environment:
-      - ASTRAWIKI_WIKI_NAME="bitxenia-wiki"
+      - ASTRAWIKI_WIKI_NAME=bitxenia-wiki
       - ASTRAWIKI_IS_COLLABORATOR=true
       - ASTRAWIKI_PUBLIC_IP=${PUBLIC_IP}
     ports:
@@ -49,6 +49,22 @@ services:
       - ./data/astrawiki_data:/app/data
     profiles:
       - astrawiki
+    restart: unless-stopped
+
+  astrachat-node:
+    container_name: astrawiki-collaborator-astrachat
+    build: "./astrachat"
+    environment:
+      - PUBLIC_IP=${PUBLIC_IP}
+    ports:
+      - "50001:50001"
+      - "50002:50002"
+      - "50003:50003"
+    volumes:
+      - ./data/astrachat_data:/app/data/astrachat
+    profiles:
+      - astrachat
+    restart: unless-stopped
 
 networks:
   astrawiki-collaborator-net:

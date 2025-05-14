@@ -18,6 +18,6 @@ WORKDIR /app
 COPY --from=builder /app/ ./
 
 # Astrachat ports
-EXPOSE 50001 50002 50003
+EXPOSE 50001 50002 50003 50001/udp
 
 CMD ["npm", "run", "start"]

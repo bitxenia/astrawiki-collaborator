@@ -4,6 +4,7 @@ services:
     image: ipfs/kubo:v0.34.1
     ports:
       - "4001:4001" # ipfs swarm
+      - "4001:4001/udp" # ipfs swarm
       - "5001:5001" # ipfs api
       - "8080:8080" # ipfs gateway
     volumes:
@@ -45,6 +46,7 @@ services:
       - "40001:40001"
       - "40002:40002"
       - "40003:40003"
+      - "40001:40001/udp"
     volumes:
       - ./data/astrawiki_data:/app/data
     profiles:
@@ -60,6 +62,7 @@ services:
       - "50001:50001"
       - "50002:50002"
       - "50003:50003"
+      - "50001:50001/udp"
     volumes:
       - ./data/astrachat_data:/app/data/astrachat
     profiles:

@@ -11,18 +11,28 @@ It uses docker to run a collaborator astrawiki node and a collaborator ipfs-clus
 
 ## Port forwarding
 
-If you are running this on a local machine, you need to forward the ports used by the astrawiki node and the ipfs-cluster node to your local machine.
+If you are running this on a local machine, you need to forward the ports used by the nodes.
 
 The ports that need to be forwarded are:
 
-- `4001` - Used by ipfs-cluster kubo
-- `9096` - Used by ipfs-cluster swarm
-- `40001` - Used by astrawiki node to listen `TCP` connections
-- `40002` - Used by astrawiki node to listen `WebSocket` connections
-- `40003` - Used by astrawiki node to listen `WebSocketSecure` connections.
-- `50001` - Used by astrachat node to listen `TCP` connections
-- `50002` - Used by astrachat node to listen `WebSocket` connections
-- `50003` - Used by astrachat node to listen `WebSocketSecure` connections.
+- Web collaborator:
+
+  - `4001` TCP/UDP - Used by ipfs-cluster kubo
+  - `9096` TCP - Used by ipfs-cluster swarm
+
+- Astrawiki collaborator:
+
+  - `40001` TCP - Used by astrawiki node to listen `TCP` connections.
+  - `40002` TCP - Used by astrawiki node to listen `WebSocket` connections.
+  - `40003` TCP - Used by astrawiki node to listen `WebSocketSecure` connections.
+  - `40001` UDP - Used by astrawiki node to listen `WebRTC-Direct` connections.
+
+- Astrachat collaborator:
+
+  - `50001` TCP - Used by astrachat node to listen `TCP` connections.
+  - `50002` TCP - Used by astrachat node to listen `WebSocket` connections
+  - `50003` TCP - Used by astrachat node to listen `WebSocketSecure` connections.
+  - `50001` UDP - Used by astrachat node to listen `WebRTC-Direct` connections.
 
 ## Installation
 

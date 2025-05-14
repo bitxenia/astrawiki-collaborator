@@ -4,7 +4,7 @@ import { FsDatastore } from "datastore-fs";
 
 const DATASTORE_DIR = "/app/data/astrachat/datastore";
 const BLOCKSTORE_DIR = "/app/data/astrachat/blockstore";
-const ORBITDB_DIR = "/app/data/astrachat";
+const DATA_DIR = "/app/data/astrachat";
 
 const node = await createAstrachat({
   chatSpace: "bitxenia-chat",
@@ -12,6 +12,6 @@ const node = await createAstrachat({
   datastore: new FsDatastore(DATASTORE_DIR),
   blockstore: new FsBlockstore(BLOCKSTORE_DIR),
   publicIp: process.env.PUBLIC_IP,
-  dataDir: ORBITDB_DIR,
+  dataDir: DATA_DIR,
   logLevel: "debug",
 });

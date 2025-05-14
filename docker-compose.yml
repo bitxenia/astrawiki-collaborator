@@ -48,7 +48,7 @@ services:
       - "40003:40003"
       - "40001:40001/udp"
     volumes:
-      - ./data/astrawiki_data:/app/data
+      - ./data/astrawiki_data:/app/data/astrawiki
     profiles:
       - astrawiki
     restart: unless-stopped

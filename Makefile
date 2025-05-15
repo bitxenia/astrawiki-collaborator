@@ -17,11 +17,8 @@ endef
 
 # Start the services
 up:
-	docker compose pull
-	docker compose build ipfs_node
-	docker compose build astrawiki-collaborator-cluster
-	docker compose build astrachat-node
-	docker compose build astrawiki-node
+	@$(call compose_cmd) pull
+	@$(call compose_cmd) build
 	@$(call compose_cmd) up -d
 
 .PHONY: up
@@ -37,3 +34,7 @@ logs:
 	@$(call compose_cmd) logs -f
 
 .PHONY: logs
+
+# Clean data
+clean:
+	sudo rm ./data -rf

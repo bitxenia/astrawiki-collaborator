@@ -44,8 +44,6 @@ services:
       - ASTRAWIKI_PUBLIC_IP=${PUBLIC_IP}
     ports:
       - "40001:40001"
-      - "40002:40002"
-      - "40003:40003"
       - "40001:40001/udp"
     volumes:
       - ./data/astrawiki_data:/app/data/astrawiki
@@ -60,8 +58,6 @@ services:
       - PUBLIC_IP=${PUBLIC_IP}
     ports:
       - "50001:50001"
-      - "50002:50002"
-      - "50003:50003"
       - "50001:50001/udp"
     volumes:
       - ./data/astrachat_data:/app/data/astrachat

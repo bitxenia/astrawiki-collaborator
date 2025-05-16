@@ -23,15 +23,11 @@ The ports that need to be forwarded are:
 - Astrawiki collaborator:
 
   - `40001` TCP - Used by astrawiki node to listen `TCP` connections.
-  - `40002` TCP - Used by astrawiki node to listen `WebSocket` connections.
-  - `40003` TCP - Used by astrawiki node to listen `WebSocketSecure` connections.
   - `40001` UDP - Used by astrawiki node to listen `WebRTC-Direct` connections.
 
 - Astrachat collaborator:
 
   - `50001` TCP - Used by astrachat node to listen `TCP` connections.
-  - `50002` TCP - Used by astrachat node to listen `WebSocket` connections
-  - `50003` TCP - Used by astrachat node to listen `WebSocketSecure` connections.
   - `50001` UDP - Used by astrachat node to listen `WebRTC-Direct` connections.
 
 ## Installation

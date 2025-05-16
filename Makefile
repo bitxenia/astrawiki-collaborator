@@ -37,4 +37,4 @@ logs:
 
 # Clean data
 clean:
-	sudo rm ./data -rf
+	rm ./data -rf
